@@ -27,6 +27,12 @@ namespace ProfileApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            }));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             // Register the Swagger generator, defining 1 or more Swagger documents
@@ -36,13 +42,21 @@ namespace ProfileApi
             });
 
             // add services
-            services.AddTransient<IProfileApiClient, ProfileService>();
+            services.AddHttpClient("ProfileApiClient", client =>
+            {
+                client.BaseAddress = new Uri("http://zware-ngnewapi.azurewebsites.net/api/developersamim_at_gmail_com/profiles");
+                client.Timeout = TimeSpan.FromMinutes(1);
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+            });
+
+            //services.AddTransient<IProfileApiClient, ProfileService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-
+            app.UseCors("MyPolicy");
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -51,6 +65,7 @@ namespace ProfileApi
             {
                 app.UseHsts();
             }
+
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 

@@ -13,19 +13,27 @@ namespace ProfileApi.Controllers
     [ApiController]
     public class ProfileController : ControllerBase
     {
-        string baseUrl = "http://zware-ngnewapi.azurewebsites.net/api/developersamim_at_gmail_com/profiles";
-        private readonly IProfileApiClient _profileApiClient;
+        private readonly IHttpClientFactory _httpClientFactory;
 
-        public ProfileController(IProfileApiClient profileApiClient)
+        public ProfileController(IHttpClientFactory httpClientFactory)
         {
-            _profileApiClient = profileApiClient;
+            _httpClientFactory = httpClientFactory;
         }
 
         // GET api/values
         [HttpGet]
-        public async Task<List<Profile>> Get()
+        public async Task<IActionResult> Get()
         {
-            return await _profileApiClient.GetAllProfile();
+            try{
+                var client = _httpClientFactory.CreateClient("ProfileApiClient");
+                var result = await client.GetStringAsync("");
+                return Ok(result);
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500);
+            }
+            
         }
 
         // GET api/values/5
