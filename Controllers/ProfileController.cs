@@ -45,8 +45,14 @@ namespace ProfileApi.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Post([FromBody] ProfileDTO profileDTO)
         {
+            profileDTO.department = String.IsNullOrEmpty(profileDTO.department) ? "Not provided." : profileDTO.department;
+            profileDTO.team = String.IsNullOrEmpty(profileDTO.team) ? "Not provided." : profileDTO.team;
+
+            var client = _httpClientFactory.CreateClient("ProfileApiClient");
+            var result = await client.PostAsJsonAsync("", profileDTO);
+            return Ok(await result.Content.ReadAsStringAsync());
         }
 
         // PUT api/values/5

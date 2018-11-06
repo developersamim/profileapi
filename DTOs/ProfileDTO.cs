@@ -3,7 +3,7 @@ using System.IO;
 
 namespace ProfileApi.DTOs
 {
-    public class Profile{
+    public class ProfileDTO{
         public int userId{get;set;}
         public string email{get;set;}
         public string firstName{get;set;}

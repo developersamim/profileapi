@@ -8,7 +8,7 @@ using System.Net.Http;
 namespace ProfileApi.Services
 {
     public interface IProfileApiClient{
-        Task<List<Profile>> GetAllProfile();
+        Task<List<ProfileDTO>> GetAllProfile();
     }
     public class ProfileService 
     {
