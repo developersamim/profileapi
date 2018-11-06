@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Http;
+using ProfileApi.Services;
+using ProfileApi.DTOs;
 
 namespace ProfileApi.Controllers
 {
@@ -10,11 +13,19 @@ namespace ProfileApi.Controllers
     [ApiController]
     public class ProfileController : ControllerBase
     {
+        string baseUrl = "http://zware-ngnewapi.azurewebsites.net/api/developersamim_at_gmail_com/profiles";
+        private readonly IProfileApiClient _profileApiClient;
+
+        public ProfileController(IProfileApiClient profileApiClient)
+        {
+            _profileApiClient = profileApiClient;
+        }
+
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public async Task<List<Profile>> Get()
         {
-            return new string[] { "value3", "value4" };
+            return await _profileApiClient.GetAllProfile();
         }
 
         // GET api/values/5
