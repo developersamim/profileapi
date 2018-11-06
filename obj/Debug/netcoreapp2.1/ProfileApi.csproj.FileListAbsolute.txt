@@ -1,0 +1,14 @@
+/Users/samimahmed/Documents/projects/ProfileApi/bin/Debug/netcoreapp2.1/ProfileApi.deps.json
+/Users/samimahmed/Documents/projects/ProfileApi/bin/Debug/netcoreapp2.1/ProfileApi.runtimeconfig.json
+/Users/samimahmed/Documents/projects/ProfileApi/bin/Debug/netcoreapp2.1/ProfileApi.runtimeconfig.dev.json
+/Users/samimahmed/Documents/projects/ProfileApi/bin/Debug/netcoreapp2.1/ProfileApi.dll
+/Users/samimahmed/Documents/projects/ProfileApi/bin/Debug/netcoreapp2.1/ProfileApi.pdb
+/Users/samimahmed/Documents/projects/ProfileApi/obj/Debug/netcoreapp2.1/ProfileApi.csprojAssemblyReference.cache
+/Users/samimahmed/Documents/projects/ProfileApi/obj/Debug/netcoreapp2.1/ProfileApi.csproj.CoreCompileInputs.cache
+/Users/samimahmed/Documents/projects/ProfileApi/obj/Debug/netcoreapp2.1/ProfileApi.RazorAssemblyInfo.cache
+/Users/samimahmed/Documents/projects/ProfileApi/obj/Debug/netcoreapp2.1/ProfileApi.RazorAssemblyInfo.cs
+/Users/samimahmed/Documents/projects/ProfileApi/obj/Debug/netcoreapp2.1/ProfileApi.AssemblyInfoInputs.cache
+/Users/samimahmed/Documents/projects/ProfileApi/obj/Debug/netcoreapp2.1/ProfileApi.AssemblyInfo.cs
+/Users/samimahmed/Documents/projects/ProfileApi/obj/Debug/netcoreapp2.1/ProfileApi.RazorTargetAssemblyInfo.cache
+/Users/samimahmed/Documents/projects/ProfileApi/obj/Debug/netcoreapp2.1/ProfileApi.dll
+/Users/samimahmed/Documents/projects/ProfileApi/obj/Debug/netcoreapp2.1/ProfileApi.pdb
